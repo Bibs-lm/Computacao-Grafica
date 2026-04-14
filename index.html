@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matriz de Pixels — Computação Gráfica TP1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1 class="app-title">Área de Desenho</h1>
+      </header>
+
+      <div class="app-grid">
+        <div class="workspace">
+          <header class="top-tools">
+            <span class="hint">Escolha uma ferramenta para desenhar</span>
+            <div class="btn-row">
+              <button type="button" class="tool-btn" data-tool="dda" title="Reta — DDA">DDA</button>
+              <button type="button" class="tool-btn" data-tool="bresenham" title="Reta — Bresenham">Bresenham</button>
+              <button type="button" class="tool-btn" data-tool="circunferencia" title="Circunferência — Bresenham">Circunferência</button>
+              <button type="button" class="tool-btn" data-tool="recorte-cs" title="Recorte — Cohen–Sutherland">Recorte C-S</button>
+              <button type="button" class="tool-btn" data-tool="recorte-lb" title="Recorte — Liang–Barsky">Recorte L-B</button>
+            </div>
+          </header>
+
+          <div class="canvas-wrap">
+            <div class="canvas-toolbar" aria-label="Histórico do quadro">
+              <button type="button" id="btn-undo" class="canvas-icon-btn" title="Desfazer (Ctrl+Z)" aria-label="Desfazer">
+                <span class="canvas-icon-btn__glyph" aria-hidden="true">↶</span>
+              </button>
+              <button type="button" id="btn-redo" class="canvas-icon-btn" title="Refazer (Ctrl+Y)" aria-label="Refazer">
+                <span class="canvas-icon-btn__glyph" aria-hidden="true">↷</span>
+              </button>
+            </div>
+            <canvas id="canvas" width="900" height="560" aria-label="Área de desenho"></canvas>
+            <span class="canvas-label">Drawing Board</span>
+          </div>
+
+          <footer class="bottom-tools">
+            <button type="button" class="tool-btn wide" data-tool="select">Selecionar</button>
+            <button type="button" class="tool-btn wide secondary" id="btn-clear">Limpar</button>
+          </footer>
+        </div>
+
+        <aside class="sidebar">
+          <h2 class="sidebar-title">Transformações</h2>
+          <p class="sidebar-note sidebar-note--plain"></p>
+
+          <section class="panel-block">
+            <h3>Reflexão</h3>
+            <button type="button" class="btn-refl" id="refl-x">Reflexão X</button>
+            <button type="button" class="btn-refl" id="refl-y">Reflexão Y</button>
+            <button type="button" class="btn-refl" id="refl-xy">Reflexão XY</button>
+          </section>
+
+          <section class="panel-block">
+            <h3>Rotação</h3>
+            <label class="field-label" for="input-rot">Graus <span id="val-rot">0</span>°</label>
+            <input type="number" id="input-rot" class="num-input num-input--block" min="-180" max="180" step="1" value="0" inputmode="numeric" aria-label="Graus" />
+            <button type="button" class="btn-apply" id="apply-rot">Rodar</button>
+          </section>
+
+          <section class="panel-block">
+            <h3>Translação</h3>
+            <label class="field-label" for="input-dx">Δx <span id="val-dx">0</span></label>
+            <input type="number" id="input-dx" class="num-input num-input--block" min="-200" max="200" step="1" value="0" inputmode="numeric" aria-label="Delta x" />
+            <label class="field-label" for="input-dy">Δy <span id="val-dy">0</span></label>
+            <input type="number" id="input-dy" class="num-input num-input--block" min="-200" max="200" step="1" value="0" inputmode="numeric" aria-label="Delta y" />
+            <button type="button" class="btn-apply" id="apply-trans">Transladar</button>
+          </section>
+
+          <section class="panel-block">
+            <h3>Escala</h3>
+            <label class="field-label" for="input-sx">Sx <span id="val-sx">1.00</span></label>
+            <input type="number" id="input-sx" class="num-input num-input--block" min="0.05" max="3" step="0.01" value="1" inputmode="decimal" aria-label="Escala Sx" />
+            <label class="field-label" for="input-sy">Sy <span id="val-sy">1.00</span></label>
+            <input type="number" id="input-sy" class="num-input num-input--block" min="0.05" max="3" step="0.01" value="1" inputmode="decimal" aria-label="Escala Sy" />
+            <button type="button" class="btn-apply" id="apply-scale">Escalar</button>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="app-credits">
+        <p class="app-credits__line">Computação Gráfica TP1</p>
+        <p class="app-credits__line app-credits__author">Gabriela Lacerda</p>
+      </footer>
+    </div>
+
+    <script src="js/algorithms.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
