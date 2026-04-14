@@ -2,6 +2,18 @@
 
 ---
 
+## 🌐 Demonstração Online
+
+A aplicação está disponível online:
+
+<p align="center">
+  <a href="https://bibs-lm.github.io/Computacao-Grafica/" target="_blank">
+    <img src="https://img.shields.io/badge/Acessar%20Projeto-Online-blue?style=for-the-badge">
+  </a>
+</p>
+
+---
+
 ## 📚 Sobre o Projeto
 
 Este projeto foi desenvolvido como trabalho prático da disciplina de **Computação Gráfica** da **PUC Minas**.
