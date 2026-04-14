@@ -92,6 +92,6 @@ O projeto inclui um vídeo demonstrando:
 
 ## Créditos
 
-TP1 - Matriz de Pixels
-PUC Minas
-Gabriela Lacerda Muniz
+* TP1 - Matriz de Pixels
+* PUC Minas
+* Gabriela Lacerda Muniz
